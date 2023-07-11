@@ -686,7 +686,7 @@ public class CameraSource {
           synchronized (processorLock) {
             frameProcessor.processByteBuffer(
                 data,
-                new FrameMetadata.Builder()
+                new Builder()
                     .setWidth(previewSize.getWidth())
                     .setHeight(previewSize.getHeight())
                     .setRotation(rotationDegrees)
@@ -699,6 +699,9 @@ public class CameraSource {
           camera.addCallbackBuffer(data.array());
         }
       }
+    }
+
+    private class Builder {
     }
   }
 
