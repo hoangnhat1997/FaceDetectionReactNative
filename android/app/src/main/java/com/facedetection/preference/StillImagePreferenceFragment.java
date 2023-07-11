@@ -14,26 +14,19 @@
  * limitations under the License.
  */
 
-package com.facedetection;
+package com.facedetection.preference;
 
-import static com.facebook.imagepipeline.transcoder.JpegTranscoderUtils.getTransformationMatrix;
+import android.os.Bundle;
+import android.preference.PreferenceFragment;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import com.google.mlkit.vision.demo.R;
 
-
-/** Draw camera image to background. */
-public class CameraImageGraphic extends GraphicOverlay.Graphic {
-
-  private final Bitmap bitmap;
-
-  public CameraImageGraphic(GraphicOverlay overlay, Bitmap bitmap) {
-    super();
-    this.bitmap = bitmap;
-  }
+/** Configures still image demo settings. */
+public class StillImagePreferenceFragment extends PreferenceFragment {
 
   @Override
-  public void draw(Canvas canvas) {
-    canvas.drawBitmap(bitmap, getTransformationMatrix(), null);
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    addPreferencesFromResource(R.xml.preference_still_image);
   }
 }
